@@ -42,7 +42,6 @@ function collect(connect, monitor) {
 const propTypes = {
 
   positionNumber: PropTypes.number.isRequired,
-  updateTeamname: PropTypes.func.isRequired,
   team: PropTypes.object.isRequired,
 
   // Injected by React DnD:
@@ -77,7 +76,6 @@ var Team = React.createClass({
   render: function () {
 
     const positionNumber = this.props.positionNumber;
-    const updateTeamname = this.props.updateTeamname;
     const team = this.props.team;
     // These two props are injected by React DnD,
     // as defined by your `collect` function above:
@@ -114,6 +112,6 @@ Team.propTypes = propTypes;
 
 export default DragSource(ItemTypes.TEAM, teamSource, collect)(Team);
 
-
+connect(mapStateToProps)(DragDropContext(HTML5Backend)(DragSource(ItemTypes.TEAM, teamSource, collect)(Team)));
 
 
