@@ -2,13 +2,13 @@ import Immutable from 'immutable'
 import { SAMPLE_LEAGUE_TABLE } from '../components/Constants';
 
 
-function swapPositions(state, sourceTeamId, targetTeamId) {
+function swapPositions(state, sourceTeamParam, targetTeamId) {
   const updatedPositions = state.positions.slice();
 
-  const sourcePosition = findTeamPosition(sourceTeamId.sourceId, updatedPositions);
+  const sourcePosition = findTeamPosition(sourceTeamParam.sourceId, updatedPositions);
   const targetPosition = findTeamPosition(targetTeamId, updatedPositions);
 
-  const sourceTeam = findTeam(sourceTeamId.sourceId, updatedPositions);
+  const sourceTeam = findTeam(sourceTeamParam.sourceId, updatedPositions);
   const targetTeam = findTeam(targetTeamId, updatedPositions);
 
   const newTarget = {

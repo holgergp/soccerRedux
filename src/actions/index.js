@@ -1,7 +1,7 @@
-export function swapPosition(sourceTeamId, targetTeamId) {
+export function swapPosition(sourceTeam, targetTeamId) {
   return {
     type: 'swapPosition',
-    sourceTeamId,
+    sourceTeam,
     targetTeamId
   }
 }

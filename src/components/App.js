@@ -1,8 +1,8 @@
 require('normalize.css');
 require('styles/App.css');
-import Provider from 'react-redux';
+import { Provider } from 'react-redux'
 
-import React from 'react';
+import React from 'react'
 import LeagueTable from './LeagueTable';
 import store from '../store';
 

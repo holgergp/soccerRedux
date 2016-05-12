@@ -1,6 +1,9 @@
 import { DragSource } from 'react-dnd';
 import React, { PropTypes } from 'react';
 import { ItemTypes } from './Constants';
+
+import store from '../store';
+import {swapPosition, updateTeamname} from '../actions/index';
 import classNames  from 'classnames';
 
 import ContentEditable from  'react-wysiwyg';
@@ -24,7 +27,8 @@ const teamSource = {
     // When dropped on a compatible target, do something
     const sourceTeam = monitor.getItem();
     const targetTeam = monitor.getDropResult();
-    props.swapPositions(sourceTeam, targetTeam.id);
+
+    store.dispatch(swapPosition(sourceTeam, targetTeam.id))
 
   }
 };
@@ -94,13 +98,13 @@ var Team = React.createClass({
             editing={this.props.team.editing}
             preventStyling
             noLinebreaks
-            />
+          />
         </div>
       </div>
     );
 
     function onChange(text) {
-      updateTeamname(team, text)
+      store.dispatch(updateTeamname(team, text));
     }
 
   }
@@ -112,6 +116,6 @@ Team.propTypes = propTypes;
 
 export default DragSource(ItemTypes.TEAM, teamSource, collect)(Team);
 
-connect(mapStateToProps)(DragDropContext(HTML5Backend)(DragSource(ItemTypes.TEAM, teamSource, collect)(Team)));
+
 
 
