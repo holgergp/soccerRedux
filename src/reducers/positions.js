@@ -3,6 +3,8 @@ import { SAMPLE_LEAGUE_TABLE } from '../components/Constants';
 
 
 function swapPositions(state, sourceTeamParam, targetTeamId) {
+
+  console.log(state);
   const updatedPositions = state.positions.slice();
 
   const sourcePosition = findTeamPosition(sourceTeamParam.sourceId, updatedPositions);
@@ -59,7 +61,7 @@ function updateTeamname(state, team, updatedText) {
     team: team
   };
 
-  return position;
+  return positions;
 }
 const defaultState = {
   positions: SAMPLE_LEAGUE_TABLE,
@@ -69,9 +71,18 @@ const defaultState = {
 export default (state = defaultState, action) => {
   switch (action.type) {
     case 'swapPositions':
-      return swapPositions(state, action.sourceId, action.targetId);
+      var swapppedPositions = swapPositions(state, action.sourceTeam, action.targetTeamId);
+      return {
+        positions : swapppedPositions,
+        newTeam: {}
+      };
+
     case 'updateTeamname':
-      return updateTeamname(state, action.team, action.updatedText);
+      var updatedTeamname = updateTeamname(state, action.team, action.updatedText);
+      return {
+        positions : updatedTeamname,
+        newTeam: {}
+      };
     default:
       return state
   }

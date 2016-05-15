@@ -1,6 +1,6 @@
 export function swapPosition(sourceTeam, targetTeamId) {
   return {
-    type: 'swapPosition',
+    type: 'swapPositions',
     sourceTeam,
     targetTeamId
   }

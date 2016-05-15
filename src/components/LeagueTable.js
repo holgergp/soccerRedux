@@ -7,10 +7,31 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { SAMPLE_LEAGUE_TABLE } from './Constants';
 
 
-var LeagueTable = React.createClass({
+/**
+ const LeagueTable = ({positions}) => (
+ <div className="col-md-6">
+ <div className="panel panel-primary">
+ <div className="panel-heading">
+ <h3 className="panel-title">Ligatabelle zum Selberstecken</h3>
+ </div>
+ <div className="panel-body">{
+        positions.map((posIter) => {
+          <Position position={posIter} key={posIter.position}/>
+        })}
+ </div>
+ </div>
+ </div>
+ );
+ **/
 
 
-  /**getInitialState: function () {
+var LeagueTable =
+//TODO hgp React component as function
+
+  React.createClass({
+
+    /**
+     getInitialState: function () {
     const defaultState = {
       positions: SAMPLE_LEAGUE_TABLE,
       newTeam: {}
@@ -26,46 +47,45 @@ var LeagueTable = React.createClass({
     }
     return localstate;
 
-  },**/
+  },
 
-  componentDidUpdate: function () {
+     componentDidUpdate: function () {
     //unused params prevProps and prevState
     //localStorage.state = JSON.stringify(this.state);
   },
 
+     **/
+    render: function () {
 
+      var positionNodes = this.props.positions.map(function (posIter) {
+        return (
+          <Position position={posIter} key={posIter.position}/>
+        );
+      });
 
-  render: function () {
-
-    var positionNodes = this.state.positions.map(function (posIter) {
       return (
-        <Position position={posIter} key={posIter.position}/>
-      );
-    });
-
-    return (
-      <div className="col-md-6">
-        <div className="panel panel-primary">
-          <div className="panel-heading">
-            <h3 className="panel-title">Ligatabelle zum Selberstecken</h3>
-          </div>
-          <div className="panel-body">
-            {positionNodes}
+        <div className="col-md-6">
+          <div className="panel panel-primary">
+            <div className="panel-heading">
+              <h3 className="panel-title">Ligatabelle zum Selberstecken</h3>
+            </div>
+            <div className="panel-body">
+              {positionNodes}
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
+  });
+
+
+const mapStateToProps = function (state) {
+  return {
+    positions: state.positions
   }
 
-
-});
-
-
-const mapStateToProps = function (positions) {
-  return {
-    positions
-  };
 };
 
-export default connect(mapStateToProps)(DragDropContext(HTML5Backend)(LeagueTable));
+let connectedComponent = connect(mapStateToProps)(LeagueTable);
 
+export default DragDropContext(HTML5Backend)(connectedComponent);
