@@ -10,3 +10,4 @@ TODO:
 - Tryout replacement of React Classes with functions
 - introduce mapDispatch
 - enhance webpack usage
+- port tests to redux
