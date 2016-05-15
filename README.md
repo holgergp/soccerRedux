@@ -11,3 +11,4 @@ TODO:
 - introduce mapDispatch
 - enhance webpack usage
 - port tests to redux
+- introduce react-localstorage
