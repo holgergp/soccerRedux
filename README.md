@@ -3,4 +3,7 @@
 
 This is my attempt of porting my soccerReact app to Redux
 
-Work in progress
+TODO:
+
+- Introduce container components
+- Tryout replacement of React Classes with functions
