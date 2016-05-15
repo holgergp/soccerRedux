@@ -6,40 +6,25 @@ import _ from 'lodash';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { SAMPLE_LEAGUE_TABLE } from './Constants';
 
-var LeagueTable =
-//TODO hgp React component as function
-
-  React.createClass({
-
-    render: function () {
-
-      var positionNodes = this.props.positions.map(function (posIter) {
-        return (
+const LeagueTable = (state, dispatch) => (
+  <div className="col-md-6">
+    <div className="panel panel-primary">
+      <div className="panel-heading">
+        <h3 className="panel-title">Ligatabelle zum Selberstecken</h3>
+      </div>
+      <div className="panel-body">
+        {state.positions.map((posIter) =>
           <Position position={posIter} key={posIter.position}/>
-        );
-      });
-
-      return (
-        <div className="col-md-6">
-          <div className="panel panel-primary">
-            <div className="panel-heading">
-              <h3 className="panel-title">Ligatabelle zum Selberstecken</h3>
-            </div>
-            <div className="panel-body">
-              {positionNodes}
-            </div>
-          </div>
-        </div>
-      );
-    }
-  });
-
+        )}
+      </div>
+    </div>
+  </div>
+);
 
 const mapStateToProps = function (state) {
   return {
     positions: state.positions
   }
-
 };
 
 let connectedComponent = connect(mapStateToProps)(LeagueTable);

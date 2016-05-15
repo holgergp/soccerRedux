@@ -79,7 +79,6 @@ function calculatePositionCssClass(positionNumber) {
 
 var Team = React.createClass({
 
-
   render: function () {
 
     const positionNumber = this.props.positionNumber;

@@ -6,21 +6,20 @@ import React from 'react'
 import LeagueTable from './LeagueTable';
 import store from '../store';
 
-let AppComponent = React.createClass({
-  render: function () {
-    return (
-      <Provider store={store}>
-        <div className="index">
-          <div className="container">
-            <div className="row">
-              <LeagueTable  />
-            </div>
-          </div>
+const AppComponent = () => (
+
+  <Provider store={store}>
+    <div className="index">
+      <div className="container">
+        <div className="row">
+          <LeagueTable  />
         </div>
-      </Provider>
-    );
-  }
-});
+      </div>
+    </div>
+  </Provider>
+
+);
+
 
 AppComponent.defaultProps = {};
 

@@ -4,7 +4,6 @@ import { SAMPLE_LEAGUE_TABLE } from '../components/Constants';
 
 function swapPositions(state, sourceTeamParam, targetTeamId) {
 
-  console.log(state);
   const updatedPositions = state.positions.slice();
 
   const sourcePosition = findTeamPosition(sourceTeamParam.sourceId, updatedPositions);
@@ -73,14 +72,14 @@ export default (state = defaultState, action) => {
     case 'swapPositions':
       var swapppedPositions = swapPositions(state, action.sourceTeam, action.targetTeamId);
       return {
-        positions : swapppedPositions,
+        positions: swapppedPositions,
         newTeam: {}
       };
 
     case 'updateTeamname':
       var updatedTeamname = updateTeamname(state, action.team, action.updatedText);
       return {
-        positions : updatedTeamname,
+        positions: updatedTeamname,
         newTeam: {}
       };
     default:

@@ -7,8 +7,6 @@ As a first attempt this might seem a bit naive, I will try to take this some ste
 TODO:
 
 - Introduce container components
-- Tryout replacement of React Classes with functions
 - introduce mapDispatch
 - enhance webpack usage
 - port tests to redux
-- introduce react-localstorage
