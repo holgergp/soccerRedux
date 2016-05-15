@@ -12,6 +12,8 @@ import ContentEditable from  'react-wysiwyg';
  * Specifies the drag source contract.
  * Only `beginDrag` function is required.
  */
+
+//TODO hgp kriegen wir das DragUndDrop auch noch irgendwie raus? Vielleicht auch eine Sache für den Container Component Umbau
 const teamSource = {
   beginDrag(props, monitor, component) {
     // Return the data describing the dragged item
@@ -53,6 +55,7 @@ const propTypes = {
   connectDragSource: PropTypes.func.isRequired
 };
 
+//TODO hgp das muss auch raus
 function calculatePositionCssClass(positionNumber) {
   if (positionNumber === 1) {
     return 'tabellenfuehrerClass tabelleClass'
@@ -106,10 +109,7 @@ var Team = React.createClass({
     function onChange(text) {
       store.dispatch(updateTeamname(team, text));
     }
-
   }
-
-
 });
 
 Team.propTypes = propTypes;
