@@ -9,3 +9,4 @@ TODO:
 - Introduce container components
 - Tryout replacement of React Classes with functions
 - introduce mapDispatch
+- enhance webpack usage
