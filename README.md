@@ -9,3 +9,7 @@ TODO:
 - Introduce container components
 - introduce mapDispatch
 - port tests to redux
+  - partially done, but needs some more love
+  - flesh out reducer test (should be trivial)
+  - find a proper way to unit test unconnected stateless components
+    - for now I test a connected component with an injected store, a store should not be needed here.
