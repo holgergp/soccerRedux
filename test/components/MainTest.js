@@ -3,15 +3,32 @@
 /*eslint no-console: 0*/
 'use strict';
 
-// Uncomment the following lines to use the react test utilities
 import React from 'react/addons';
 const TestUtils = React.addons.TestUtils;
 import createComponent from 'helpers/shallowRenderHelper';
-
+import configureStore from 'redux-mock-store';
 import AppComponent from 'components/App';
 
 
 import LeagueTable from 'components/LeagueTable';
+import  { SAMPLE_LEAGUE_TABLE }  from 'components/Constants';
+
+function setup() {
+  const mockStore = configureStore();
+  let props = {
+    store: mockStore
+  };
+
+  let renderer = TestUtils.createRenderer();
+  renderer.render(<LeagueTable {...props} />)
+  let output = renderer.getRenderOutput();
+
+  return {
+    props,
+    output,
+    renderer
+  }
+}
 
 describe('MainComponent', () => {
     let AppComponentCreated;

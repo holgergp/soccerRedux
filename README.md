@@ -8,5 +8,4 @@ TODO:
 
 - Introduce container components
 - introduce mapDispatch
-- enhance webpack usage
 - port tests to redux
