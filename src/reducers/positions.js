@@ -1,4 +1,3 @@
-import Immutable from 'immutable'
 import { SAMPLE_LEAGUE_TABLE } from '../components/Constants';
 
 

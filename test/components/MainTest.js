@@ -6,33 +6,34 @@
 import React from 'react/addons';
 const TestUtils = React.addons.TestUtils;
 import createComponent from 'helpers/shallowRenderHelper';
-import configureStore from 'redux-mock-store';
 import AppComponent from 'components/App';
+import { Provider } from 'react-redux'
 
 
-import {LeagueTable} from 'components/LeagueTable';
+import LeagueTable from 'components/LeagueTable';
 import  { SAMPLE_LEAGUE_TABLE }  from 'components/Constants';
 
 import { wrap } from 'react-stateless-wrapper'
 
 
-/**function setup() {
-  const mockStore = configureStore();
-  let props = {
-    store: mockStore
-  };
-
-  let renderer = TestUtils.createRenderer();
-  renderer.render(<LeagueTable {...props} />)
-  let output = renderer.getRenderOutput();
-
+/**
+ * Mock out the top level Redux store with all the required
+ * methods and have it return the provided state by default.
+ * @param {Object} state State to populate in store
+ * @return {Object} Mock store
+ */
+function createMockStore(state) {
   return {
-    props,
-    output,
-    renderer
-  }
+    subscribe: () => {
+    },
+    dispatch: () => {
+    },
+    getState: () => {
+      return {...state};
+    }
+  };
 }
- **/
+
 describe('MainComponent', () => {
   let AppComponentCreated;
 
@@ -53,13 +54,12 @@ describe('LeagueTable', () => {
   });
 
   it('should have display 18 different clubs', () => {
-    let WrappedComponent = wrap(LeagueTable);
-    const mockState={
-      positions: []
-
-    };
+    const mockStore = createMockStore({positions: SAMPLE_LEAGUE_TABLE});
+    //TODO hgp Mockstore should not be neccesary
     let root = TestUtils.renderIntoDocument(
-      <WrappedComponent state={mockState}/>
+      <Provider store={mockStore}>
+        <LeagueTable/>
+      </Provider>
     );
 
 
