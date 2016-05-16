@@ -6,7 +6,8 @@ import _ from 'lodash';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { SAMPLE_LEAGUE_TABLE } from './Constants';
 
-const LeagueTable = (state, dispatch) => (
+
+export const LeagueTable = (state, dispatch) => (
   <div className="col-md-6">
     <div className="panel panel-primary">
       <div className="panel-heading">
