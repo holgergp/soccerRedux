@@ -1,6 +1,6 @@
 var webpackCfg = require('./webpack.config');
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     basePath: '',
     browsers: ['PhantomJS'],
@@ -21,6 +21,8 @@ module.exports = function(config) {
     webpack: webpackCfg,
     webpackServer: {
       noInfo: true
-    }
+    },
+    logLevel: config.LOG_DEBUG,
+
   });
 };

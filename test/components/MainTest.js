@@ -79,7 +79,6 @@ describe('LeagueTable', () => {
     );
 
     let div = TestUtils.scryRenderedDOMComponentsWithClass(root, 'tabelleClass');
-
     expect(div.length).to.equal(0);
 
   });
@@ -88,10 +87,30 @@ describe('LeagueTable', () => {
 
     const divs = UnconnectedLeagueTable({positions: SAMPLE_LEAGUE_TABLE}, function () {
     });
+    //Upgrade to React Element, because all helper function work that way
+    //Otherwise I cannot assert properly
+    let WrappedComponent = wrap(divs)
+   // const root = TestUtils.renderIntoDocument(<WrappedComponent />);
 
-    console.log(divs);
-    let div = TestUtils.scryRenderedDOMComponentsWithClass(divs, 'tabelleClass');
-    expect(div.length).to.equal(0);
+    //let div = TestUtils.scryRenderedDOMComponentsWithClass(root, 'tabelleClass');
+    //expect(div.length).to.equal(0);
+
+    /**let innerChildren;
+    var count = React.Children.map(divs, function (arg0) {
+      React.Children.map(arg0.props.children, function (arg1) {
+        React.Children.map(arg1.props.children, function (arg2) {
+          React.Children.map(arg2.props.children, function (arg3) {
+            console.log(arg3);
+            innerChildren++
+            innerChildren = arg2;
+          })
+        })
+      })
+
+    });**/
+
+
+
 
   });
 
