@@ -11,6 +11,7 @@ import { Provider } from 'react-redux'
 
 
 import LeagueTable from 'components/LeagueTable';
+import {LeagueTable as UnconnectedLeagueTable} from 'components/LeagueTable';
 import  { SAMPLE_LEAGUE_TABLE }  from 'components/Constants';
 
 import { wrap } from 'react-stateless-wrapper'
@@ -70,6 +71,17 @@ describe('LeagueTable', () => {
     let div = TestUtils.scryRenderedDOMComponentsWithClass(root, 'tabelleClass');
 
     expect(div.length).to.equal(18);
+
+  });
+
+  it('should have display 18 different clubs (using an explicit state)', () => {
+    let root = TestUtils.renderIntoDocument(
+      <UnconnectedLeagueTable state={{positions: SAMPLE_LEAGUE_TABLE}}/>
+    );
+
+    let div = TestUtils.scryRenderedDOMComponentsWithClass(root, 'tabelleClass');
+
+    expect(div.length).to.equal(0);
 
   });
 
