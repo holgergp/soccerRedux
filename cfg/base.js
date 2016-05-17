@@ -64,12 +64,5 @@ module.exports = {
         loader: 'url-loader?limit=8192'
       }
     ]
-  },
-  externals: {
-    'cheerio': 'window',
-    'react-dom': true,
-    'react-dom/server': true,
-    'react-addons-test-utils': true,
-    'react/lib/ExecutionEnvironment': true
   }
 };

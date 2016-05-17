@@ -13,7 +13,9 @@ import LeagueTable from 'components/LeagueTable';
 import {LeagueTable as UnconnectedLeagueTable} from 'components/LeagueTable';
 import  { SAMPLE_LEAGUE_TABLE }  from 'components/Constants';
 
-import { shallow } from 'enzyme';
+import { wrap } from 'react-stateless-wrapper'
+
+
 /**
  * Mock out the top level Redux store with all the required
  * methods and have it return the provided state by default.
@@ -86,9 +88,10 @@ describe('LeagueTable', () => {
 
     const divs = UnconnectedLeagueTable({positions: SAMPLE_LEAGUE_TABLE}, function () {
     });
-    const wrapper = shallow(divs);
-    expect(wrapper.find('.tabelleClass')).to.have.length(3);
 
+    console.log(divs);
+    let div = TestUtils.scryRenderedDOMComponentsWithClass(divs, 'tabelleClass');
+    expect(div.length).to.equal(0);
 
   });
 

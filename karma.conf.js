@@ -21,8 +21,6 @@ module.exports = function(config) {
     webpack: webpackCfg,
     webpackServer: {
       noInfo: true
-    },
-    //logLevel: config.LOG_DEBUG,
-
+    }
   });
 };
