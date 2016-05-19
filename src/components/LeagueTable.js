@@ -7,20 +7,24 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { SAMPLE_LEAGUE_TABLE } from './Constants';
 
 
-export const LeagueTable = (state, dispatch) => (
-  <div className="col-md-6">
-    <div className="panel panel-primary">
-      <div className="panel-heading">
-        <h3 className="panel-title">Ligatabelle zum Selberstecken</h3>
-      </div>
-      <div className="panel-body">
-        {state.positions.map((posIter) =>
-          <Position position={posIter} key={posIter.position}/>
-        )}
+export const LeagueTable = (state, dispatch) => {
+  console.log(state);
+  console.log(state.positions);
+  console.log(state.positions.map);
+  return (<div className="col-md-6">
+      <div className="panel panel-primary">
+        <div className="panel-heading">
+          <h3 className="panel-title">Ligatabelle zum Selberstecken</h3>
+        </div>
+        <div className="panel-body">
+          {state.positions.map((posIter) =>
+            <Position position={posIter} key={posIter.position}/>
+          )}
+        </div>
       </div>
     </div>
-  </div>
-);
+  )
+} ;
 
 const mapStateToProps = function (state) {
   return {

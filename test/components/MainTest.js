@@ -12,6 +12,8 @@ import { Provider } from 'react-redux'
 import LeagueTable from 'components/LeagueTable';
 import {LeagueTable as UnconnectedLeagueTable} from 'components/LeagueTable';
 import  { SAMPLE_LEAGUE_TABLE }  from 'components/Constants';
+import { DragDropContext } from 'react-dnd';
+import TestBackend from 'react-dnd-test-backend';
 
 import { wrap } from 'react-stateless-wrapper'
 
@@ -74,29 +76,40 @@ describe('LeagueTable', () => {
   });
 
   it('should have display 18 different clubs (using an explicit state)', () => {
+
+    const DndComponent = DragDropContext(TestBackend)(UnconnectedLeagueTable);
     let root = TestUtils.renderIntoDocument(
-      <UnconnectedLeagueTable state={{positions: SAMPLE_LEAGUE_TABLE}}/>
+      <DndComponent positions={SAMPLE_LEAGUE_TABLE}/>
     );
 
+
     let div = TestUtils.scryRenderedDOMComponentsWithClass(root, 'tabelleClass');
-    expect(div.length).to.equal(0);
+    expect(div.length).to.equal(18);
 
   });
 
-  it('should have display 18 different clubs (using an explicit state and call directly)', () => {
+  xit('should have display 18 different clubs (using an explicit state and call directly)', () => {
 
+    //might not work due to
+    //http://jaketrent.com/post/react-stateless-components-missing/
+    //https://facebook.github.io/react/docs/reusable-components.html
     const divs = UnconnectedLeagueTable({positions: SAMPLE_LEAGUE_TABLE}, function () {
     });
+    //console.log(JSON.stringify(divs));
+
+
+
+    let div = TestUtils.scryRenderedDOMComponentsWithClass(divs, 'tabelleClass');
     //Upgrade to React Element, because all helper function work that way
     //Otherwise I cannot assert properly
-    let WrappedComponent = wrap(divs)
-   // const root = TestUtils.renderIntoDocument(<WrappedComponent />);
+    //let WrappedComponent = wrap(divs)
+    // const root = TestUtils.renderIntoDocument(<WrappedComponent />);
 
     //let div = TestUtils.scryRenderedDOMComponentsWithClass(root, 'tabelleClass');
     //expect(div.length).to.equal(0);
 
     /**let innerChildren;
-    var count = React.Children.map(divs, function (arg0) {
+     var count = React.Children.map(divs, function (arg0) {
       React.Children.map(arg0.props.children, function (arg1) {
         React.Children.map(arg1.props.children, function (arg2) {
           React.Children.map(arg2.props.children, function (arg3) {
@@ -110,6 +123,23 @@ describe('LeagueTable', () => {
     });**/
 
 
+  });
+
+  it('should have display 18 different clubs (using an explicit state and a handwrappedComponent)', () => {
+
+    //http://jaketrent.com/post/react-stateless-components-missing/
+    class WrappedComponent extends React.Component {
+      render() {
+        return UnconnectedLeagueTable({positions: SAMPLE_LEAGUE_TABLE}, function () {
+        });
+      }
+    }
+
+    const DndComponent = DragDropContext(TestBackend)(WrappedComponent);
+
+    let root = TestUtils.renderIntoDocument(<DndComponent/>);
+    let div = TestUtils.scryRenderedDOMComponentsWithClass(root, 'tabelleClass');
+    expect(div.length).to.equal(18);
 
 
   });
