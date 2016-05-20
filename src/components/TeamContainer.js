@@ -20,7 +20,7 @@ function collect(connect, monitor) {
 }
 
 
-let Position = React.createClass({
+let TeamContainer = React.createClass({
 
 
   render: function () {
@@ -39,11 +39,11 @@ let Position = React.createClass({
 });
 
 
-Position.propTypes = {
+TeamContainer.propTypes = {
   position: PropTypes.object.isRequired
 };
 
-export default DropTarget(ItemTypes.TEAM, positionTarget, collect)(Position);
+export default DropTarget(ItemTypes.TEAM, positionTarget, collect)(TeamContainer);
 
 
 

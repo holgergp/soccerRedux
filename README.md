@@ -12,7 +12,6 @@ Notes to the tests
 
 TODO:
 
-- Introduce container components
 - introduce mapDispatch
 - port tests to redux
   - partially done, but needs some more love

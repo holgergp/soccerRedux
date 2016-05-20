@@ -1,5 +1,5 @@
 import React from 'react';
-import Position from './Position';
+import TeamContainer from './TeamContainer';
 import { DragDropContext } from 'react-dnd';
 import { connect } from 'react-redux';
 import _ from 'lodash';
@@ -18,7 +18,7 @@ export const LeagueTable = (state, dispatch) => {
         </div>
         <div className="panel-body">
           {state.positions.map((posIter) =>
-            <Position position={posIter} key={posIter.position}/>
+            <TeamContainer position={posIter} key={posIter.position}/>
           )}
         </div>
       </div>
