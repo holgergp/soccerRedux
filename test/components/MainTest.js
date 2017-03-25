@@ -3,8 +3,8 @@
 /*eslint no-console: 0*/
 'use strict';
 
-import React from 'react/addons';
-const TestUtils = React.addons.TestUtils;
+import TestUtils from 'react-addons-test-utils';
+import React from 'react';
 import createComponent from 'helpers/shallowRenderHelper';
 import AppComponent from 'components/App';
 import { Provider } from 'react-redux'

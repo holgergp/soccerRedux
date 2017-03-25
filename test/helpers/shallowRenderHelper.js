@@ -5,9 +5,8 @@
  * @see http://simonsmith.io/unit-testing-react-components-without-a-dom/
  * @author somonsmith
  */
-import React from 'react/addons';
-const TestUtils = React.addons.TestUtils;
-
+import TestUtils from 'react-addons-test-utils';
+import React from 'react';
 /**
  * Get the shallow rendered component
  *
