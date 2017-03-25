@@ -5,7 +5,9 @@ import { ItemTypes } from './Constants';
 import {swapPositionAction} from '../actions/index';
 import { connect } from 'react-redux';
 import flow from 'lodash/flow';
-import store from '../store';
+import { calculatePositionCssClass } from './TeamViewUtil';
+
+import classNames  from 'classnames';
 
 const positionTarget = {
   drop(props) {
@@ -36,7 +38,7 @@ function collectDragSource(connect, monitor) {
 }
 
 
-let TeamContainer = React.createClass({
+let Position = React.createClass({
 
 
   render: function () {
@@ -46,11 +48,14 @@ let TeamContainer = React.createClass({
     const swapPosition = this.props.swapPosition;
     const { connectDropTarget } = this.props;
     const { connectDragSource } = this.props;
+    const classes = classNames('col-md-12', 'btn', calculatePositionCssClass(position.positionNumber));
     return connectDropTarget(
       connectDragSource(
       <div>
         <span>
-            <Team team={team} positionNumber={position.position} swapPosition={swapPosition} />
+            <div className={ classes } style={{cursor: 'pointer'}}>
+              <Team team={team} swapPosition={swapPosition} />
+            </div>
         </span>
       </div>
       ));
@@ -58,7 +63,7 @@ let TeamContainer = React.createClass({
 });
 
 
-TeamContainer.propTypes = {
+Position.propTypes = {
   position: PropTypes.object.isRequired,
   swapPosition: PropTypes.func,
 
@@ -72,7 +77,7 @@ TeamContainer.propTypes = {
 const mapDispatchToProps = (dispatch) => {
   return {
     swapPosition: (sourceTeam, targetTeamId)=> {
-      store.dispatch(swapPositionAction(sourceTeam, targetTeamId))
+      dispatch(swapPositionAction(sourceTeam, targetTeamId))
     }
   }
 };
@@ -104,19 +109,19 @@ const teamSource = {
     const sourceTeamId = monitor.getItem();
     const dropResult = monitor.getDropResult();
 
-    store.dispatch(swapPositionAction(sourceTeamId, dropResult.team.id))
-    //props.swapPosition(sourceTeamId, dropResult.team.id);
+    //store.dispatch(swapPositionAction(sourceTeamId, dropResult.team.id))
+    props.swapPosition(sourceTeamId, dropResult.team.id);
 
   }
 };
 
-let connectedComponent = connect(mapStateToProps, mapDispatchToProps)(TeamContainer);
+let connectedComponent = connect(mapStateToProps, mapDispatchToProps)(Position);
 
-let draganbleComponent= flow(
+let dragableComponent= flow(
   DragSource(ItemTypes.TEAM, teamSource, collectDragSource),
-  DropTarget(ItemTypes.TEAM, positionTarget, collectDropTarget))(TeamContainer);
+  DropTarget(ItemTypes.TEAM, positionTarget, collectDropTarget))(Position);
 
 
-export default connect(null, mapDispatchToProps)(draganbleComponent);
+export default connect(null, mapDispatchToProps)(dragableComponent);
 
 
