@@ -1,4 +1,4 @@
-export function swapPosition(sourceTeam, targetTeamId) {
+export function swapPositionAction(sourceTeam, targetTeamId) {
   return {
     type: 'swapPositions',
     sourceTeam,
@@ -6,7 +6,7 @@ export function swapPosition(sourceTeam, targetTeamId) {
   }
 }
 
-export function updateTeamname(team, updatedText) {
+export function updateTeamnameAction(team, updatedText) {
   return {
     type: 'updateTeamname',
     team,

@@ -2,11 +2,18 @@ import React, { PropTypes } from 'react';
 import { DropTarget } from 'react-dnd';
 import Team from './Team';
 import { ItemTypes } from './Constants';
+import {swapPositionAction} from '../actions/index';
+import { connect } from 'react-redux';
 
 const positionTarget = {
   drop(props) {
     //unused params monitor, component
-    return props.position.team;
+    //This provides props for endDrag
+    //This Object seems to miss the funcs passed via redux ...
+    return {
+      team: props.position.team,
+      swapPosition: props.swapPosition
+    };
 
   }
 };
@@ -27,12 +34,13 @@ let TeamContainer = React.createClass({
 
     const position = this.props.position;
     const team = this.props.position.team;
+    const swapPosition = this.props.swapPosition;
     const { connectDropTarget } = this.props;
     return connectDropTarget(
       <div>
         <span>
-   <Team team={team} positionNumber={position.position} />
-      </span>
+            <Team team={team} positionNumber={position.position} swapPosition={swapPosition} />
+        </span>
       </div>
     );
   }
@@ -40,10 +48,22 @@ let TeamContainer = React.createClass({
 
 
 TeamContainer.propTypes = {
-  position: PropTypes.object.isRequired
+  position: PropTypes.object.isRequired,
+  swapPosition: PropTypes.func,
+
 };
 
-export default DropTarget(ItemTypes.TEAM, positionTarget, collect)(TeamContainer);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    swapPosition: (sourceTeam, targetTeamId)=> {
+      dispatch(swapPositionAction(sourceTeam, targetTeamId))
+    }
+  }
+};
+
+let connectedComponent = connect(null, mapDispatchToProps)(TeamContainer);
+
+export default DropTarget(ItemTypes.TEAM, positionTarget, collect)(connectedComponent);
 
 
 
