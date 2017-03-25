@@ -6,7 +6,7 @@ exports.ItemTypes = {
 
 exports.SAMPLE_LEAGUE_TABLE = [
   {
-    position: 1,
+    positionNumber: 1,
     team: {
       name: 'Borussia Mönchengladbach',
       editing: true,
@@ -14,7 +14,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 2,
+    positionNumber: 2,
     team: {
       name: 'Borussia Dortmund',
       editing: true,
@@ -22,7 +22,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 3,
+    positionNumber: 3,
     team: {
       name: 'FC Bayern München',
       editing: true,
@@ -30,7 +30,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 4,
+    positionNumber: 4,
     team: {
       name: 'VFL Wolfsburg',
       editing: true,
@@ -38,7 +38,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 5,
+    positionNumber: 5,
     team: {
       name: 'Bayer Leverkusen',
       editing: true,
@@ -46,7 +46,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 6,
+    positionNumber: 6,
     team: {
       name: 'FC Schalke 04',
       editing: true,
@@ -54,7 +54,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 7,
+    positionNumber: 7,
     team: {
       name: 'Hertha BSC Berlin',
       editing: true,
@@ -62,7 +62,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 8,
+    positionNumber: 8,
     team: {
       name: '1. FC Köln',
       editing: true,
@@ -70,7 +70,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 9,
+    positionNumber: 9,
     team: {
       name: 'FC Ingolstadt',
       editing: true,
@@ -78,7 +78,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 10,
+    positionNumber: 10,
     team: {
       name: 'Darmstadt 98',
       editing: true,
@@ -86,7 +86,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 11,
+    positionNumber: 11,
     team: {
       name: 'Hamburger SV',
       editing: true,
@@ -94,7 +94,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 12,
+    positionNumber: 12,
     team: {
       name: 'Eintracht Frankfurt',
       editing: true,
@@ -102,7 +102,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 13,
+    positionNumber: 13,
     team: {
       name: 'Werder Bremen',
       editing: true,
@@ -110,7 +110,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 14,
+    positionNumber: 14,
     team: {
       name: 'Hoffenheim',
       editing: true,
@@ -118,7 +118,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 15,
+    positionNumber: 15,
     team: {
       name: 'FC Augsburg',
       editing: true,
@@ -126,7 +126,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 16,
+    positionNumber: 16,
     team: {
       name: 'Hannover 96',
       editing: true,
@@ -134,7 +134,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 17,
+    positionNumber: 17,
     team: {
       name: 'Mainz 05',
       editing: true,
@@ -142,7 +142,7 @@ exports.SAMPLE_LEAGUE_TABLE = [
     }
   },
   {
-    position: 18,
+    positionNumber: 18,
     team: {
       name: 'VFB Stuttgart',
       editing: true,
