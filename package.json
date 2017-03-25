@@ -65,12 +65,13 @@
     "lodash": "^3.10.1",
     "normalize.css": "^3.0.3",
     "react": "^15.4.2",
+    "react-addons-shallow-compare": "^15.4.2",
     "react-dnd": "^2.1.4",
     "react-dnd-html5-backend": "^2.1.4",
-    "react-wysiwyg": "^2.1.7",
     "react-dom": "^15.4.2",
     "react-pstate": "0.0.4",
     "react-redux": "*",
+    "react-wysiwyg": "^2.1.7",
     "redux": "^3.6.0",
     "redux-localstorage": "^0.4.0"
   }
