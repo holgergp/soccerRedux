@@ -4,7 +4,7 @@ import Team from './Team';
 import { ItemTypes } from './Constants';
 import {swapPositionAction} from '../actions/index';
 import { connect } from 'react-redux';
-import flow from 'lodash/flow';
+import {flow} from 'lodash';
 import { calculatePositionCssClass } from './TeamViewUtil';
 
 import classNames  from 'classnames';
