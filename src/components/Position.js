@@ -82,11 +82,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-const mapStateToProps = function (state) {
-  return {
-    positions: state.positions
-  }
-};
+
 
 /**
  * Specifies the drag source contract.
@@ -94,7 +90,7 @@ const mapStateToProps = function (state) {
  */
 
 const teamSource = {
-  beginDrag(props, monitor, component) {
+  beginDrag(props) {
     // Return the data describing the dragged item
     return {sourceId: props.position.team.id};
   },
@@ -115,7 +111,7 @@ const teamSource = {
   }
 };
 
-let connectedComponent = connect(mapStateToProps, mapDispatchToProps)(Position);
+//let connectedComponent = connect(mapStateToProps, mapDispatchToProps)(Position);
 
 let dragableComponent= flow(
   DragSource(ItemTypes.TEAM, teamSource, collectDragSource),

@@ -8,7 +8,7 @@ import { updateTeamnameAction} from '../actions/index';
 const propTypes = {
 
   team: PropTypes.object.isRequired,
-  updateTeamname: PropTypes.func,
+  updateTeamname: PropTypes.func
 
 };
 
@@ -41,14 +41,14 @@ class TeamName extends React.Component {
       />
     </div>)
   }
-};
+}
 
 TeamName.propTypes = propTypes;
 const mapDispatchToProps = (dispatch) => {
   return {
     updateTeamname: (team, text) => {
       dispatch(updateTeamnameAction(team, text))
-    },
+    }
   }
 };
 

@@ -7,7 +7,7 @@ import TeamName from './TeamName';
 
 const propTypes = {
 
-  team: PropTypes.object.isRequired,
+  team: PropTypes.object.isRequired
 
 };
 
@@ -21,12 +21,6 @@ class Team extends React.Component {
     this.team = this.props.team;
   }
   render () {
-
-    const positionNumber = this.props.positionNumber;
-
-
-    // These two props are injected by React DnD,
-    // as defined by your `collect` function above:
 
     return (
       <div>
