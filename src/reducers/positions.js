@@ -1,6 +1,6 @@
 import { SAMPLE_LEAGUE_TABLE } from '../components/Constants';
 
-import shallowCompare from 'react-addons-shallow-compare' // ES6
+//import shallowCompare from 'react-addons-shallow-compare' // ES6
 
 function swapPositions(state, sourceTeamParam, targetTeamId) {
 
@@ -23,22 +23,13 @@ function swapPositions(state, sourceTeamParam, targetTeamId) {
     team: targetTeam
   };
 
-
   updatedPositions[targetPosition.positionNumber - 1] = newTarget;
   updatedPositions[sourcePosition.positionNumber - 1] = newSource;
-
 
   return updatedPositions;
 
 }
 
-function findTeamPositionNumber(teamId, positions) {
-  let foundPosition = positions.filter(function (posIter) {
-    return posIter.team.id === teamId;
-  }).pop();
-
-  return foundPosition.position;
-}
 function findTeamPosition(teamId, positions) {
   let foundPosition = positions.filter(function (posIter) {
     return posIter.team.id === teamId;
@@ -82,9 +73,9 @@ export default (state = defaultState, action) => {
     case 'swapPositions': {
       const newPositions = swapPositions(state, action.sourceTeam, action.targetTeamId);
       const newState = {
-        positions: newPositions,
+        positions: newPositions
       };
-      const identical = shallowCompare(state, newState);
+      //const identical = shallowCompare(state, newState);
       return newState
     }
 
@@ -97,5 +88,3 @@ export default (state = defaultState, action) => {
       return state
   }
 }
-
-
