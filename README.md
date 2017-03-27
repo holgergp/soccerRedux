@@ -6,6 +6,8 @@ As a first attempt this might seem a bit naive, I will try to take this some ste
 
 You can see a version working under https://holgergp.github.io/soccerRedux
 
+Following https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment you can deploy this project` via `npm run deploy.
+
 Notes to the tests
 - Testing stateless components works by wrapping in a statefull component (for now thats the way to go)
 - Direct invocation does not work properly by now, probably needs some Selector Lib
