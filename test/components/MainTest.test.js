@@ -6,9 +6,10 @@
 import TestUtils from 'react-addons-test-utils';
 import React  from 'react';
 import createComponent from 'helpers/shallowRenderHelper';
-import AppComponent from 'components/App';
 import { Provider } from 'react-redux'
 
+jest.mock("../../src/store.js");
+import AppComponent from 'components/App';
 import LeagueTable from 'components/LeagueTable';
 import {LeagueTable as UnconnectedLeagueTable} from 'components/LeagueTable';
 import  { SAMPLE_LEAGUE_TABLE }  from 'components/Constants';
@@ -36,15 +37,15 @@ function createMockStore(state) {
   };
 }
 
+
 describe('MainComponent', () => {
   let AppComponentCreated;
-
   beforeEach(() => {
     AppComponentCreated = createComponent(AppComponent);
   });
 
-  it('should have its component name as default className', () => {
-    expect(AppComponentCreated.props.store).to.exist;
+  it('should have a created store available', () => {
+    expect(AppComponentCreated.props.store).toBeDefined();
   });
 });
 
@@ -71,7 +72,7 @@ describe('LeagueTable', () => {
      );**/
     let div = TestUtils.scryRenderedDOMComponentsWithClass(root, 'tabelleClass');
 
-    expect(div.length).to.equal(18);
+    expect(div.length).toEqual(18);
 
   });
 
