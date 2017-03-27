@@ -12,7 +12,6 @@ Notes to the tests
 
 TODO:
 
-- introduce mapDispatch
 - port tests to redux
   - partially done, but needs some more love
   - flesh out reducer test (should be trivial)
