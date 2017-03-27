@@ -3,10 +3,7 @@
  */
 
 var React = require('react')
-var ReactDOM = require('react-dom')
 var classNames = require('classnames')
-var escapeHTML = require('escape-html')
-var isServer = typeof window === 'undefined'
 
 
 var noop = function(){}
