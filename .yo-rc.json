@@ -1,6 +1,6 @@
 {
   "generator-react-webpack": {
-    "appName": "soccerReact",
+    "appName": "soccerRedux",
     "style": "less"
   }
 }
