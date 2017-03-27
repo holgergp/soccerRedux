@@ -2,11 +2,7 @@
   "plugins": [
     "react"
   ],
-  "ecmaFeatures": {
-    "jsx": true,
-    "modules": true,
-    "experimentalObjectRestSpread": true
-  },
+
   "env": {
     "browser": true,
     "amd": true,
@@ -25,5 +21,13 @@
     "no-trailing-spaces": [1, { "skipBlankLines": true }],
     "no-unreachable": 1,
     "no-alert": 0
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "experimentalObjectRestSpread": true
+    },
   }
 }
