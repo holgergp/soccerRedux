@@ -1,24 +1,23 @@
-import React from 'react';
-import TeamContainer from './TeamContainer';
+/*eslint-disable no-unused-vars*/
+import React from 'react'
+  /*eslint-enable no-unused-vars*/;
+import Position from './Position';
 import { DragDropContext } from 'react-dnd';
 import { connect } from 'react-redux';
-import _ from 'lodash';
 import HTML5Backend from 'react-dnd-html5-backend';
-import { SAMPLE_LEAGUE_TABLE } from './Constants';
 
 
-export const LeagueTable = (state, dispatch) => {
-  console.log(state);
-  console.log(state.positions);
-  console.log(state.positions.map);
+
+export const LeagueTable = (props) => {
+
   return (<div className="col-md-6">
       <div className="panel panel-primary">
         <div className="panel-heading">
           <h3 className="panel-title">Ligatabelle zum Selberstecken</h3>
         </div>
         <div className="panel-body">
-          {state.positions.map((posIter) =>
-            <TeamContainer position={posIter} key={posIter.position}/>
+          {props.positions.map((posIter) =>
+            <Position position={posIter} key={posIter.team.id} />
           )}
         </div>
       </div>
@@ -31,6 +30,9 @@ const mapStateToProps = function (state) {
     positions: state.positions
   }
 };
+
+
+
 
 let connectedComponent = connect(mapStateToProps)(LeagueTable);
 
