@@ -53,19 +53,16 @@ var ContentEditable = React.createClass({
 
   render: function() {
 
-    // todo: use destructuring
-    var editing = this.props.editing;
-    var className = this.props.className;
-    var tagName = this.props.tagName;
+    let {editing: editing, className: className, tagName: tagName} = this.props;
 
     // setup our classes
-    var classes = {
+    const classes = {
       ContentEditable: true
     };
 
-    var placeholderStyle = this.props.placeholderStyle || {
+    const placeholderStyle = this.props.placeholderStyle || {
         color: '#bbbbbb'
-      }
+      };
 
     if (className) {
       classes[className] = true;
@@ -74,7 +71,7 @@ var ContentEditable = React.createClass({
     // set 'div' as our default tagname
     tagName = tagName || 'div';
 
-    var content = this.props.html;
+    const content = this.props.html;
 
     // return our newly created element
     return React.createElement(tagName, {
