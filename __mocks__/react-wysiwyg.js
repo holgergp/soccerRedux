@@ -53,7 +53,7 @@ var ContentEditable = React.createClass({
 
   render: function() {
 
-    let {editing: editing, className: className, tagName: tagName} = this.props;
+    const {editing: editing, className: className, tagName: tagName} = this.props;
 
     // setup our classes
     const classes = {
@@ -69,12 +69,12 @@ var ContentEditable = React.createClass({
     }
 
     // set 'div' as our default tagname
-    tagName = tagName || 'div';
+    const tagNameOrDefault = tagName || 'div';
 
     const content = this.props.html;
 
     // return our newly created element
-    return React.createElement(tagName, {
+    return React.createElement(tagNameOrDefault, {
       tabIndex: 0,
       key: '0',
       className: classNames(classes),
