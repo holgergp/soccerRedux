@@ -1,5 +1,5 @@
 [![Build Status Travis](https://travis-ci.org/holgergp/soccerRedux.svg?branch=master)](https://travis-ci.org/holgergp/soccerRedux)
-[![Build Status CircleCI](https://circleci.com/gh/holgergp/soccerRedux.svg?style=shield&circle-token=:circle-token)
+[![Build Status CircleCI](https://circleci.com/gh/holgergp/soccerRedux.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/holgergp/soccerRedux/)
 # soccerRedux
 
 This is my attempt of porting my [soccerReact] (https://github.com/holgergp/soccerReact) app to Redux.
